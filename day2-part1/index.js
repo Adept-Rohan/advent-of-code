@@ -31,6 +31,8 @@ const checkArray = (array) => {
             if (Math.abs(difference) < 1 || Math.abs(difference) > 3) {
                 return false;
             }
+
+
         }
         return increasing || decreasing
 
