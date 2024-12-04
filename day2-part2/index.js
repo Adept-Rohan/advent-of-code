@@ -49,7 +49,9 @@ const checkArray = (array) => {
 
         for (let i = 0; i < subArray.length; i++) {
             const modifiedArrayPart1 = subArray.slice(0, i)
+            console.log("🚀 ~ greatData ~ modifiedArrayPart1:", modifiedArrayPart1)
             const modifiedArrayPart2 = subArray.slice(i + 1)
+            console.log("🚀 ~ greatData ~ modifiedArrayPart2:", modifiedArrayPart2)
 
             const finalArray = modifiedArrayPart1.concat(modifiedArrayPart2)
 
