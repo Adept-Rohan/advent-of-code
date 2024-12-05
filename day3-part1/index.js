@@ -11,23 +11,25 @@ async function readFileAndProcess() {
 }
 
 const myData = await readFileAndProcess()
-console.log(typeof myData[0])
+console.log(myData[0])
 
-const myRegex = /mul\(\d{1,3},\d{1,3}\)/g;
+function sumValidMultiplications(data) {
+    const validMulRegex = /mul\((\d{1,3}),(\d{1,3})\)/g;
 
-const isMatch = myData[0].match(myRegex)
-console.log("🚀 ~ isMatch:", isMatch)
+    let match;
+    let totalSum = 0;
 
+    while ((match = validMulRegex.exec(data)) !== null) {
+        const num1 = parseInt(match[1], 10);
+        const num2 = parseInt(match[2], 10);
+        totalSum += num1 * num2;
+    }
 
-let sum = 0
-
-for (const match of isMatch) {
-    const regex = /mul\((\d+),(\d+)\)/
-    const myNewMatch = match.match(regex)
-    sum += parseInt(myNewMatch[1]) * parseInt(myNewMatch[2])
+    return totalSum;
 }
 
-console.log(sum)
+const result = sumValidMultiplications(myData[0])
+console.log("🚀 ~ result:", result)
 
 
 
